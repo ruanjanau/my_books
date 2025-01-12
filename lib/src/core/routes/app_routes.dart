@@ -19,6 +19,12 @@ abstract class AppRoutes {
         binding: HomeBinding(),
         transition: transiton,
       ),
+      GetPage(
+        name: Routes.onboarding,
+        page: () => OnboardingPage(),
+        binding: OnboardingBinding(),
+        transition: transiton,
+      ),
     ];
   }
 }

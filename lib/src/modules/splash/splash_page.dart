@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../core/assets/assets.dart';
@@ -19,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
       await Future.delayed(
         const Duration(seconds: 5),
       );
-      Get.offAllNamed(Routes.home);
+      Get.offAllNamed(Routes.onboarding);
     });
     super.initState();
   }
@@ -27,11 +28,20 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
-      body: LottieBuilder.asset(
-        Assets.splash,
-        width: 580,
-        height: 580,
+      backgroundColor: Colors.purple,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          LottieBuilder.asset(
+            Assets.splash,
+            width: 580.0,
+            height: 580.0,
+          ),
+          LoadingAnimationWidget.newtonCradle(
+            size: 100.0,
+            color: Colors.white,
+          ),
+        ],
       ),
     );
   }
