@@ -76,6 +76,12 @@ class HomePage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               final book = controller.books[index];
                               return ListTile(
+                                onTap: () {
+                                  Get.toNamed(
+                                    Routes.detail,
+                                    parameters: {'id': book.id},
+                                  );
+                                },
                                 leading: book.thumbnail.isNotEmpty
                                     ? Image.network(book.thumbnail)
                                     : SvgPicture.asset(
