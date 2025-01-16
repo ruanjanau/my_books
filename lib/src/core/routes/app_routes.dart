@@ -25,6 +25,14 @@ abstract class AppRoutes {
         binding: OnboardingBinding(),
         transition: transiton,
       ),
+      GetPage(
+        name: Routes.detail,
+        page: () => DetailPage(
+          id: Get.parameters['id'] ?? '',
+        ),
+        binding: DetailsBinding(),
+        transition: transiton,
+      ),
     ];
   }
 }
