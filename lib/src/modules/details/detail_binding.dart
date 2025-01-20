@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'details.dart';
+import '../modules.dart';
 
 class DetailsBinding extends Bindings {
   @override
