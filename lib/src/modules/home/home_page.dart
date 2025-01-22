@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blueGrey, width: 2),
+                      border: Border.all(color: Colors.blueGrey, width: 2.0),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Padding(
@@ -56,9 +56,9 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 10.0),
                   const Divider(thickness: 1, color: Colors.blueGrey),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 10.0),
                   const Text(
                     'Livros encontrados',
                     style: TextStyle(
@@ -86,8 +86,8 @@ class HomePage extends StatelessWidget {
                                     ? Image.network(book.thumbnail)
                                     : SvgPicture.asset(
                                         Assets.book,
-                                        height: 40,
-                                        width: 50,
+                                        height: 40.0,
+                                        width: 50.0,
                                       ),
                                 title: Text(book.title),
                                 subtitle: Text(book.author.toString()),
