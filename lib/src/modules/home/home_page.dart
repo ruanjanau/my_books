@@ -13,15 +13,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: GetBuilder<HomeController>(
-          builder: (controller) {
-            return Obx(() {
-              return Column(
+      backgroundColor: Colors.blueGrey,
+      body: GetBuilder<HomeController>(
+        builder: (controller) {
+          return Obx(() {
+            return SafeArea(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset(Assets.book, height: 30),
                       const Text(
@@ -34,9 +35,10 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 10.0),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blueGrey, width: 2.0),
+                      border: Border.all(color: Colors.white, width: 2.0),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Padding(
@@ -56,50 +58,70 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10.0),
-                  const Divider(thickness: 1, color: Colors.blueGrey),
-                  const SizedBox(height: 10.0),
-                  const Text(
-                    'Livros encontrados',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.blueGrey,
+                  const SizedBox(height: 20.0),
+                  Expanded(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(32.0),
+                          topRight: Radius.circular(32.0),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Livros encontrados',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            controller.isLoading.value
+                                ? const Center(
+                                    child: CircularProgressIndicator())
+                                : Expanded(
+                                    child: ListView.separated(
+                                      separatorBuilder: (context, index) =>
+                                          const Divider(),
+                                      itemCount: controller.books.length,
+                                      itemBuilder: (context, index) {
+                                        final book = controller.books[index];
+                                        return ListTile(
+                                          onTap: () {
+                                            Get.toNamed(
+                                              Routes.detail,
+                                              parameters: {'id': book.id},
+                                            );
+                                          },
+                                          leading: book.thumbnail.isNotEmpty
+                                              ? Image.network(book.thumbnail)
+                                              : SvgPicture.asset(
+                                                  Assets.book,
+                                                  height: 40.0,
+                                                  width: 50.0,
+                                                ),
+                                          title: Text(book.title),
+                                          subtitle:
+                                              Text(book.author.toString()),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  controller.isLoading.value
-                      ? const Center(child: CircularProgressIndicator())
-                      : Expanded(
-                          child: ListView.separated(
-                            separatorBuilder: (context, index) =>
-                                const Divider(),
-                            itemCount: controller.books.length,
-                            itemBuilder: (context, index) {
-                              final book = controller.books[index];
-                              return ListTile(
-                                onTap: () {
-                                  Get.toNamed(
-                                    Routes.detail,
-                                    parameters: {'id': book.id},
-                                  );
-                                },
-                                leading: book.thumbnail.isNotEmpty
-                                    ? Image.network(book.thumbnail)
-                                    : SvgPicture.asset(
-                                        Assets.book,
-                                        height: 40.0,
-                                        width: 50.0,
-                                      ),
-                                title: Text(book.title),
-                                subtitle: Text(book.author.toString()),
-                              );
-                            },
-                          ),
-                        ),
                 ],
-              );
-            });
-          },
-        ),
+              ),
+            );
+          });
+        },
       ),
     );
   }
