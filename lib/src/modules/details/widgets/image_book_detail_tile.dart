@@ -13,12 +13,12 @@ class ImageBookDetailTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Center(
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.4,
-          height: MediaQuery.of(context).size.height * 0.3,
+          width: MediaQuery.of(context).size.width * 0.35,
+          height: MediaQuery.of(context).size.height * 0.25,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
-              image: NetworkImage(image),
+              image: NetworkImage(image, scale: 50),
               fit: BoxFit.cover,
             ),
             boxShadow: [

@@ -8,7 +8,7 @@ class TabBarTile extends StatelessWidget {
     return const TabBar(
       textScaler: TextScaler.linear(1.1),
       labelColor: Colors.black,
-      unselectedLabelColor: Colors.grey,
+      unselectedLabelColor: Colors.white,
       indicatorColor: Colors.black,
       indicatorSize: TabBarIndicatorSize.label,
       tabs: [

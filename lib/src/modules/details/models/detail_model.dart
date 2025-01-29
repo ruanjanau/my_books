@@ -14,6 +14,7 @@ class DetailModel {
   final String? description;
   final List<String>? categories;
   final DimensionsModel? dimensions;
+  final String? webReaderLink;
 
   const DetailModel({
     this.id,
@@ -27,6 +28,7 @@ class DetailModel {
     this.description,
     this.categories,
     this.dimensions,
+    this.webReaderLink,
   });
 
   factory DetailModel.fromJson(Map<String, dynamic> json) {
@@ -52,6 +54,7 @@ class DetailModel {
           : ['unknown Category'],
       dimensions:
           DimensionsModel.fromJson(json['volumeInfo']['dimensions'] ?? {}),
+      webReaderLink: json['accessInfo']['webReaderLink'] ?? '',
     );
   }
 }
