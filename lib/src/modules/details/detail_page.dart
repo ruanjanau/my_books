@@ -140,9 +140,7 @@ class DetailPage extends StatelessWidget {
                             ),
                           ),
                           ReadNowTile(
-                            onPressed: () {
-                              controller.openWebReader();
-                            },
+                            onPressed: () => controller.openWebReader(),
                           ),
                         ],
                       ),
