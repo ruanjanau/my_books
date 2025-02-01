@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/core.dart';
 import '../modules.dart';
 
 class DetailPage extends StatelessWidget {
@@ -97,7 +98,7 @@ class DetailPage extends StatelessWidget {
                                       controller.detailModel.value.description!,
                                       textAlign: TextAlign.justify,
                                       style: const TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -139,7 +140,10 @@ class DetailPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          ReadNowTile(
+                          PrimaryButton(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            color: Colors.black87,
+                            tittle: 'Ler livro',
                             onPressed: () => controller.openWebReader(),
                           ),
                         ],

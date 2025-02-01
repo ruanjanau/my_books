@@ -42,7 +42,11 @@ class DetailModel {
         DateTime.parse(json['volumeInfo']['publishedDate'] ?? ''),
       ),
       pageCount: json['volumeInfo']['pageCount'] ?? 0,
-      rating: json['volumeInfo']['averageRating'] ?? 0.0,
+      rating: json['volumeInfo']['averageRating'] is double
+          ? json['volumeInfo']['averageRating']
+          : json['volumeInfo']['averageRating'] is int
+              ? json['volumeInfo']['averageRating'].toDouble()
+              : 0.0,
       author: authors != null ? List<String>.from(authors) : ['unknown Author'],
       thumbnail: imageLinks != null && imageLinks['medium'] != null
           ? imageLinks['medium']

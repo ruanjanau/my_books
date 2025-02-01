@@ -36,23 +36,26 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10.0),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white, width: 2.0),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: TextField(
-                        controller: _searchController,
-                        decoration: InputDecoration(
-                          hintText: 'Digite o nome do livro...',
-                          border: InputBorder.none,
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.search),
-                            onPressed: () {
-                              controller.searchBooks(_searchController.text);
-                            },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 2.0),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: TextField(
+                          controller: _searchController,
+                          decoration: InputDecoration(
+                            hintText: 'Digite o nome do livro...',
+                            border: InputBorder.none,
+                            suffixIcon: IconButton(
+                              icon: const Icon(Icons.search),
+                              onPressed: () {
+                                controller.searchBooks(_searchController.text);
+                              },
+                            ),
                           ),
                         ),
                       ),
@@ -85,31 +88,35 @@ class HomePage extends StatelessWidget {
                                 ? const Center(
                                     child: CircularProgressIndicator())
                                 : Expanded(
-                                    child: ListView.separated(
-                                      separatorBuilder: (context, index) =>
-                                          const Divider(),
-                                      itemCount: controller.books.length,
-                                      itemBuilder: (context, index) {
-                                        final book = controller.books[index];
-                                        return ListTile(
-                                          onTap: () {
-                                            Get.toNamed(
-                                              Routes.detail,
-                                              parameters: {'id': book.id},
-                                            );
-                                          },
-                                          leading: book.thumbnail.isNotEmpty
-                                              ? Image.network(book.thumbnail)
-                                              : SvgPicture.asset(
-                                                  Assets.book,
-                                                  height: 40.0,
-                                                  width: 50.0,
-                                                ),
-                                          title: Text(book.title),
-                                          subtitle:
-                                              Text(book.author.toString()),
-                                        );
-                                      },
+                                    child: RefreshIndicator(
+                                      onRefresh: () async =>
+                                          controller.refreshBooks(),
+                                      child: ListView.separated(
+                                        separatorBuilder: (context, index) =>
+                                            const Divider(),
+                                        itemCount: controller.books.length,
+                                        itemBuilder: (context, index) {
+                                          final book = controller.books[index];
+                                          return ListTile(
+                                            onTap: () {
+                                              Get.toNamed(
+                                                Routes.detail,
+                                                parameters: {'id': book.id},
+                                              );
+                                            },
+                                            leading: book.thumbnail.isNotEmpty
+                                                ? Image.network(book.thumbnail)
+                                                : SvgPicture.asset(
+                                                    Assets.book,
+                                                    height: 40.0,
+                                                    width: 50.0,
+                                                  ),
+                                            title: Text(book.title),
+                                            subtitle:
+                                                Text(book.author.toString()),
+                                          );
+                                        },
+                                      ),
                                     ),
                                   ),
                           ],

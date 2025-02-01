@@ -15,6 +15,10 @@ class HomeController extends GetxController {
     searchBooks('');
   }
 
+  void refreshBooks() {
+    searchBooks('');
+  }
+
   Future<void> searchBooks(String search) async {
     isLoading.value = true;
     final books = await homeRepository.searchBooks(search);
