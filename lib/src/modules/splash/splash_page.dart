@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
       await Future.delayed(
         const Duration(seconds: 5),
       );
-      Get.offAllNamed(Routes.home);
+      Get.offAllNamed(Routes.navigation);
     });
     super.initState();
   }
@@ -28,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: Colors.blueGrey,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

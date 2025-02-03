@@ -1,10 +1,11 @@
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../details.dart';
+import '../../modules.dart';
 
 class DetailsController extends GetxController {
   final DetailRepository detailRepository = DetailRepository();
+  final FavoritesController favoriteService = Get.find();
 
   final Rx<DetailModel> detailModel = const DetailModel().obs;
 
@@ -41,5 +42,14 @@ class DetailsController extends GetxController {
     final detail = await detailRepository.getDetail(id);
     detailModel.value = detail;
     isLoading.value = false;
+  }
+
+  void toggleFavorite() {
+    if (favoriteService.isFavorite(detailModel.value)) {
+      favoriteService.removeFromFavorites(detailModel.value);
+    } else {
+      favoriteService.addToFavorites(detailModel.value);
+    }
+    update();
   }
 }

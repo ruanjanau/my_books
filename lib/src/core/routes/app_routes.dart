@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../modules/modules.dart';
+import '../navigation/navigation.dart';
 import 'constants/constants.dart';
 
 abstract class AppRoutes {
@@ -21,7 +22,7 @@ abstract class AppRoutes {
       ),
       GetPage(
         name: Routes.onboarding,
-        page: () => OnboardingPage(),
+        page: () => const OnboardingPage(),
         binding: OnboardingBinding(),
         transition: transiton,
       ),
@@ -31,6 +32,18 @@ abstract class AppRoutes {
           id: Get.parameters['id'] ?? '',
         ),
         binding: DetailsBinding(),
+        transition: transiton,
+      ),
+      GetPage(
+        name: Routes.favorites,
+        page: () => FavoritesPage(),
+        binding: FavoritesBindings(),
+        transition: transiton,
+      ),
+      GetPage(
+        name: Routes.navigation,
+        page: () => const NavigationPage(),
+        binding: NavigationBinding(),
         transition: transiton,
       ),
     ];

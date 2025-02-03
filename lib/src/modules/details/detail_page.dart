@@ -33,9 +33,24 @@ class DetailPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          IconButton(
-                            onPressed: () => Get.back(),
-                            icon: const Icon(Icons.arrow_back_ios),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                onPressed: () => Get.back(),
+                                icon:
+                                    const Icon(Icons.arrow_back_ios, size: 30),
+                              ),
+                              IconButton(
+                                onPressed: () => controller.toggleFavorite(),
+                                icon: controller.favoriteService.isFavorite(
+                                        controller.detailModel.value)
+                                    ? const Icon(Icons.favorite,
+                                        size: 30, color: Colors.red)
+                                    : const Icon(Icons.favorite_border,
+                                        size: 30),
+                              ),
+                            ],
                           ),
                           ImageBookDetailTile(
                             image: controller.detailModel.value.thumbnail

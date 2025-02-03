@@ -8,7 +8,9 @@ import 'controllers/home_controller.dart';
 class HomePage extends StatelessWidget {
   final TextEditingController _searchController = TextEditingController();
 
-  HomePage({super.key});
+  HomePage({super.key}) {
+    Get.put(HomeController());
+  }
 
   @override
   Widget build(BuildContext context) {
