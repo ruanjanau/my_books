@@ -51,7 +51,11 @@ class DetailModel {
       thumbnail: imageLinks != null && imageLinks['medium'] != null
           ? imageLinks['medium']
           : '',
-      price: json['saleInfo']['listPrice']['amount'] ?? 0.0,
+      price: json['saleInfo']['listPrice']['amount'] is double
+          ? json['saleInfo']['listPrice']['amount']
+          : json['saleInfo']['listPrice']['amount'] is int
+              ? json['saleInfo']['listPrice']['amount'].toDouble()
+              : 0.0,
       description: json['volumeInfo']['description'] ?? '',
       categories: json['volumeInfo']['categories'] != null
           ? List<String>.from(json['volumeInfo']['categories'])
