@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../core/core.dart';
 import 'controllers/home_controller.dart';
@@ -76,20 +77,24 @@ class HomePage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16.0, vertical: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Livros encontrados',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            controller.isLoading.value
-                                ? const Center(
-                                    child: CircularProgressIndicator())
-                                : Expanded(
+                        child: controller.isLoading.value
+                            ? Center(
+                                child: LoadingAnimationWidget.dotsTriangle(
+                                  size: 80.0,
+                                  color: Colors.blueGrey,
+                                ),
+                              )
+                            : Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Livros encontrados',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Expanded(
                                     child: RefreshIndicator(
                                       onRefresh: () async =>
                                           controller.refreshBooks(),
@@ -121,8 +126,8 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                          ],
-                        ),
+                                ],
+                              ),
                       ),
                     ),
                   ),

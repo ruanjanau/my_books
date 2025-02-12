@@ -18,13 +18,13 @@ class OnboardingPage extends StatelessWidget {
         child: FlutterCarouselIntro(
           indicatorAlign: IndicatorAlign.bottom,
           showIndicators: true,
-          primaryColor: Colors.purple,
+          primaryColor: Colors.blueGrey,
           slides: [
             SliderItem(
               titleTextStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22.0,
-                color: Colors.purple,
+                color: Colors.blueGrey,
               ),
               title: 'Bem vindo ao Booksbury!',
               subtitle: const Text(
@@ -38,7 +38,7 @@ class OnboardingPage extends StatelessWidget {
               titleTextStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22.0,
-                color: Colors.purple,
+                color: Colors.blueGrey,
               ),
               title: 'Benefícios deste aplicativo',
               subtitle: const Text(
@@ -52,14 +52,14 @@ class OnboardingPage extends StatelessWidget {
               titleTextStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22.0,
-                color: Colors.purple,
+                color: Colors.blueGrey,
               ),
-              title: 'Está pronto para começar a ler? Então, vamos começar',
+              title: 'Está pronto para começar a ler? Então, vamos começar...',
               widget: SvgPicture.asset(Assets.onboardingTwo),
               subtitle: PrimaryButton(
-                color: Colors.purple,
+                color: Colors.blueGrey,
                 tittle: 'Vamos lá!',
-                onPressed: () => Get.offAllNamed(Routes.home),
+                onPressed: () => Get.offAllNamed(Routes.navigation),
               ),
             ),
           ],

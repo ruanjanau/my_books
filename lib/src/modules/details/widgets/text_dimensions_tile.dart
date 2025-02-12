@@ -19,7 +19,7 @@ class TextDimensionsTile extends StatelessWidget {
         Text(
           'Altura: ${height}',
           style: const TextStyle(
-            color: Colors.blueAccent,
+            color: Colors.white,
             fontSize: 18.0,
             fontWeight: FontWeight.w500,
           ),
@@ -28,7 +28,7 @@ class TextDimensionsTile extends StatelessWidget {
         Text(
           'Largura: ${width}',
           style: const TextStyle(
-            color: Colors.blueAccent,
+            color: Colors.white,
             fontSize: 18.0,
             fontWeight: FontWeight.w500,
           ),
@@ -37,7 +37,7 @@ class TextDimensionsTile extends StatelessWidget {
         Text(
           'Espessura: ${thickness}',
           style: const TextStyle(
-            color: Colors.blueAccent,
+            color: Colors.white,
             fontSize: 18.0,
             fontWeight: FontWeight.w500,
           ),

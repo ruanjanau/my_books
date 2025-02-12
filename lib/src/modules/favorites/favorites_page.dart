@@ -41,7 +41,7 @@ class FavoritesPage extends StatelessWidget {
                       itemCount: controller.favoriteBooks.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 0.7,
+                        childAspectRatio: 0.65,
                         crossAxisCount: 2,
                         mainAxisSpacing: 16,
                         crossAxisSpacing: 20,

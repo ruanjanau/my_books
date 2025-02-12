@@ -127,7 +127,7 @@ class DetailPage extends StatelessWidget {
                                         controller.detailModel.value.categories
                                             .toString(),
                                         style: const TextStyle(
-                                          color: Colors.blueAccent,
+                                          color: Colors.white,
                                           fontSize: 18.0,
                                           fontWeight: FontWeight.w500,
                                         ),
