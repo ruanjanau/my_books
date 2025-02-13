@@ -1,4 +1,5 @@
 📚 Booksbury
+
 Um aplicativo Flutter desenvolvido para pesquisar livros, favoritar seus livros preferidos e ler diretamente na web utilizando a Google Books API.
 
 ✨ Funcionalidades
