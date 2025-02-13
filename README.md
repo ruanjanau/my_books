@@ -27,8 +27,9 @@ MVVM como arquitetura principal
 _____________________________________________________________________________________________________________________
 
 🚀 Como Executar o Projeto
+
 Clone este repositório: - 
-git clone https://github.com/seu-usuario/book-finder-app.git
+git clone https://github.com/seu-usuario/my_books.git
 
 Navegue até o diretório do projeto: - 
 cd book-finder-app
