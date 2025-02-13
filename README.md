@@ -2,74 +2,61 @@
 Um aplicativo Flutter desenvolvido para pesquisar livros, favoritar seus livros preferidos e ler diretamente na web utilizando a Google Books API.
 
 ✨ Funcionalidades
+
 🔍 Pesquisar livros pelo título ou autor utilizando a Google Books API.
+
 ⭐ Favoritar livros para acessar rapidamente seus favoritos.
+
 🌐 Ler online diretamente na página do livro disponibilizada pelo Google.
+
 📱 Interface intuitiva e responsiva, garantindo uma boa experiência para o usuário.
+
 🛠️ Tecnologias Utilizadas
+
 Flutter para desenvolvimento cross-platform (iOS e Android)
+
 Dart como linguagem de programação
+
 Google Books API para busca e informações dos livros
-MobX para gerenciamento de estado
-flutter_modular para injeção de dependência e organização do projeto
-📷 Screenshots
-Adicione aqui algumas capturas de tela do app mostrando a tela de busca, lista de favoritos e a página de detalhes de um livro.
+
+Getx para gerenciamento de estado e injeçao de dependencias
+
+MVVM como arquitetura principal
+
+_____________________________________________________________________________________________________________________
 
 🚀 Como Executar o Projeto
-Clone este repositório:
-bash
-Copiar
-Editar
+Clone este repositório: - 
 git clone https://github.com/seu-usuario/book-finder-app.git
-Navegue até o diretório do projeto:
-bash
-Copiar
-Editar
+
+Navegue até o diretório do projeto: - 
 cd book-finder-app
-Instale as dependências:
-bash
-Copiar
-Editar
+
+Instale as dependências: - 
 flutter pub get
-Execute o aplicativo:
-bash
-Copiar
-Editar
+
+Execute o aplicativo: - 
 flutter run
-📄 Estrutura do Projeto
-/lib: Contém todo o código principal do aplicativo.
-models/: Modelos de dados (ex: BookModel)
-repositories/: Comunicação com a Google Books API
-controllers/: Lógica de negócios e gerenciamento de estado (MobX)
-pages/: Telas do aplicativo (HomePage, FavoritesPage, etc.)
-widgets/: Componentes reutilizáveis do app
+
+_____________________________________________________________________________________________________________________
+
 📦 API Utilizada
 O app utiliza a Google Books API para buscar informações sobre livros.
 
-Exemplo de resposta da API:
-json
-Copiar
-Editar
-{
-"kind": "books#volume",
-"id": "xyz123",
-"volumeInfo": {
-"title": "Exemplo de Livro",
-"authors": ["Autor Exemplo"],
-"publishedDate": "2024-01-01",
-"description": "Uma breve descrição do livro.",
-"imageLinks": {
-"thumbnail": "https://link-para-capa-do-livro.jpg"
-},
-"previewLink": "https://books.google.com/preview?id=xyz123"
-}
-}
+
 💡 Próximos Passos
+
 🔖 Implementar categorias de livros
+
 📊 Adicionar estatísticas de leitura para os favoritos
+
 🌙 Modo escuro para uma experiência de leitura noturna
+
+_____________________________________________________________________________________________________________________
+
 📞 Contato
+
 Se tiver dúvidas ou sugestões, fique à vontade para entrar em contato!
 
 📧 Email: rhuanjanau531@gmail.com
-🐦 Instagram: @ruan.janau
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/ruan.janau)
