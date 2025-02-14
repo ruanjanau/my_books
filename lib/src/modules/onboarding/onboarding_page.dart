@@ -30,7 +30,8 @@ class OnboardingPage extends StatelessWidget {
               subtitle: const Text(
                 textAlign: TextAlign.center,
                 AppStrings.onboardingNumberOne,
-                style: TextStyle(fontSize: 16.0),
+                style: TextStyle(fontSize: 16.0,
+                ),
               ),
               widget: SvgPicture.asset(Assets.onboardingOne),
             ),
